@@ -32,8 +32,8 @@ const EuroApp = () => {
 
   // Diese Funktion wird aufgerufen, wenn ein Button geklickt wird
   const handlePayment = (value, label) => {
-    const newPaidAmount = paidAmount + value;
-    setPaidAmount(newPaidAmount);
+    const newPaidAmount = (paidAmount + value).toFixed(2);
+    setPaidAmount(parseFloat(newPaidAmount));
 
     // Update der Klickstatistik
     setClickStats((prevStats) => ({
@@ -41,10 +41,13 @@ const EuroApp = () => {
       [label]: (prevStats[label] || 0) + 1
     }));
 
-    if (newPaidAmount === targetAmount) {
+    // Logik für die Nachricht, wenn der Betrag erreicht oder überschritten wurde
+    if (parseFloat(newPaidAmount) === targetAmount) {
       setMessage("Gut gemacht! Du hast den richtigen Betrag bezahlt.");
-    } else if (newPaidAmount > targetAmount) {
+    } else if (parseFloat(newPaidAmount) > targetAmount) {
       setMessage("Oops! Du hast zu viel bezahlt.");
+    } else {
+      setMessage("");
     }
   };
 
@@ -60,14 +63,16 @@ const EuroApp = () => {
       <h3 style={{ fontSize: "18px", marginBottom: "10px" }}>Bezahlter Betrag: {paidAmount.toFixed(2)} €</h3>
       {message && <p style={{ fontSize: "16px", color: "green", marginBottom: "10px" }}>{message}</p>}
 
-      <div style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "10px",
-        justifyContent: "center",
-        maxWidth: "400px",
-        margin: "0 auto"
-      }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "10px",
+          justifyContent: "center",
+          maxWidth: "400px",
+          margin: "0 auto"
+        }}
+      >
         {euroValues.map((coin, index) => (
           <button
             key={index}
@@ -111,7 +116,14 @@ const EuroApp = () => {
         Neuen Betrag generieren
       </button>
 
-      <div style={{ marginTop: "20px", textAlign: "left", maxWidth: "400px", margin: "0 auto" }}>
+      <div
+        style={{
+          marginTop: "20px",
+          textAlign: "left",
+          maxWidth: "400px",
+          margin: "0 auto"
+        }}
+      >
         <h3 style={{ fontSize: "18px" }}>Statistik: Anzahl der Klicks auf Münzen und Scheine</h3>
         <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
           {euroValues.map((coin) => (

@@ -129,15 +129,17 @@ const EuroApp = () => {
           margin: "0 auto"
         }}
       >
-        <h3 style={{ fontSize: "18px" }}>Klicks auf Münzen und Scheine</h3>
+        <h3 style={{ fontSize: "12px" }}>Klicks auf Münzen und Scheine</h3>
         <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
           {euroValues.map((coin) => (
-              {coin.label}: {clickStats[coin.label] || 0} Klicks - 
+            <li key={coin.label} style={{ fontSize: "10px" }}>
+            {coin.label}: {clickStats[coin.label] || 0} Klicks
+          </li>
           ))}
         </ul>
 
-        <p style={{ fontSize: "16px" }}>Erledigte Aufgaben: {tasksCompleted}</p>
-        <p style={{ fontSize: "16px" }}>Richtig erledigte Aufgaben: {tasksCorrect}</p>
+        <p style={{ fontSize: "12px" }}>Erledigte Aufgaben: {tasksCompleted}</p>
+        <p style={{ fontSize: "12px" }}>Richtig erledigte Aufgaben: {tasksCorrect}</p>
       </div>
     </div>
   );

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 const euroValues = [
-  { label: "1 Cent", value: 0.01, color: "#b87333", shape: "circle", radius: 20 }, // Kupfer
-  { label: "2 Cent", value: 0.02, color: "#b87333", shape: "circle", radius: 25 }, // Kupfer
+  { label: "1 Cent", value: 0.01, color: "#b87333", shape: "circle", radius: 24 }, // Kupfer
+  { label: "2 Cent", value: 0.02, color: "#b87333", shape: "circle", radius: 27 }, // Kupfer
   { label: "5 Cent", value: 0.05, color: "#b87333", shape: "circle", radius: 30 }, // Kupfer
-  { label: "10 Cent", value: 0.10, color: "#d4af37", shape: "circle", radius: 25 }, // Gold
+  { label: "10 Cent", value: 0.10, color: "#d4af37", shape: "circle", radius: 27 }, // Gold
   { label: "20 Cent", value: 0.20, color: "#d4af37", shape: "circle", radius: 30 }, // Gold
-  { label: "50 Cent", value: 0.50, color: "#d4af37", shape: "circle", radius: 35 }, // Gold
-  { label: "1 Euro", value: 1.00, color: "#c0c0c0", shape: "circle", radius: 35 }, // Silber mit Goldrand
-  { label: "2 Euro", value: 2.00, color: "#c0c0c0", shape: "circle", radius: 40 }, // Silber mit Goldrand
+  { label: "50 Cent", value: 0.50, color: "#d4af37", shape: "circle", radius: 33 }, // Gold
+  { label: "1 Euro", value: 1.00, color: "#c0c0c0", shape: "circle", radius: 33 }, // Silber mit Goldrand
+  { label: "2 Euro", value: 2.00, color: "#c0c0c0", shape: "circle", radius: 38 }, // Silber mit Goldrand
   { label: "5 Euro", value: 5.00, color: "#808080", shape: "rect", width: 120, height: 60 }, // Blaue Note
   { label: "10 Euro", value: 10.00, color: "#ff5733", shape: "rect", width: 120, height: 60 }, // Rote Note
   { label: "20 Euro", value: 20.00, color: "#3498db", shape: "rect", width: 120, height: 60 }, // Blaue Note

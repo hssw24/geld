@@ -8,7 +8,7 @@ const euroValues = [
   { label: "20 Cent", value: 0.20, color: "#d4af37", shape: "circle", radius: 30 }, // Gold
   { label: "50 Cent", value: 0.50, color: "#d4af37", shape: "circle", radius: 33 }, // Gold
   { label: "1 Euro", value: 1.00, color: "#c0c0c0", shape: "circle", radius: 33 }, // Silber mit Goldrand
-  { label: "2 Euro", value: 2.00, color: "#c0c0c0", shape: "circle", radius: 38 }, // Silber mit Goldrand
+  { label: "2 Euro", value: 2.00, color: "#c0c0c0", shape: "circle", radius: 36 }, // Silber mit Goldrand
   { label: "5 Euro", value: 5.00, color: "#808080", shape: "rect", width: 120, height: 60 }, // Blaue Note
   { label: "10 Euro", value: 10.00, color: "#ff5733", shape: "rect", width: 120, height: 60 }, // Rote Note
   { label: "20 Euro", value: 20.00, color: "#3498db", shape: "rect", width: 120, height: 60 }, // Blaue Note
@@ -87,7 +87,7 @@ const EuroApp = () => {
               borderRadius: coin.shape === "circle" ? "50%" : "5px",
               cursor: "pointer",
               backgroundColor: coin.color,
-              color: "white",
+              color: "black",
               border: "none",
               transition: "background-color 0.3s",
               width: coin.shape === "circle" ? `${coin.radius * 2}px` : `${coin.width}px`,
@@ -132,7 +132,7 @@ const EuroApp = () => {
         <h3 style={{ fontSize: "12px" }}>Klicks auf Münzen und Scheine</h3>
         <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
           {euroValues.map((coin) => (
-            <li key={coin.label} style={{ fontSize: "10px" }}>
+            <li key={coin.label} style={{ fontSize: "12px" }}>
             {coin.label}: {clickStats[coin.label] || 0} Klicks
           </li>
           ))}

@@ -20,6 +20,8 @@ const EuroApp = () => {
   const [paidAmount, setPaidAmount] = useState(0);
   const [message, setMessage] = useState("");
   const [clickStats, setClickStats] = useState({});
+  const [tasksCompleted, setTasksCompleted] = useState(0);
+  const [tasksCorrect, setTasksCorrect] = useState(0);
 
   // Funktion zum Generieren eines zufälligen Betrags zwischen 0.01 und 100.00 Euro
   const generateRandomAmount = () => {
@@ -44,8 +46,11 @@ const EuroApp = () => {
     // Logik für die Nachricht, wenn der Betrag erreicht oder überschritten wurde
     if (parseFloat(newPaidAmount) === targetAmount) {
       setMessage("Gut gemacht! Du hast den richtigen Betrag bezahlt.");
+      setTasksCompleted(tasksCompleted + 1); // Aufgabe abgeschlossen
+      setTasksCorrect(tasksCorrect + 1); // Aufgabe richtig
     } else if (parseFloat(newPaidAmount) > targetAmount) {
       setMessage("Oops! Du hast zu viel bezahlt.");
+      setTasksCompleted(tasksCompleted + 1); // Aufgabe abgeschlossen
     } else {
       setMessage("");
     }
@@ -132,6 +137,10 @@ const EuroApp = () => {
             </li>
           ))}
         </ul>
+
+        <h3 style={{ fontSize: "18px" }}>Aufgaben-Statistik</h3>
+        <p style={{ fontSize: "16px" }}>Erledigte Aufgaben: {tasksCompleted}</p>
+        <p style={{ fontSize: "16px" }}>Richtig erledigte Aufgaben: {tasksCorrect}</p>
       </div>
     </div>
   );

@@ -54,27 +54,38 @@ const EuroApp = () => {
   }, []);
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
-      <h1>Bezahle den Betrag!</h1>
-      <h2>Zielbetrag: {targetAmount.toFixed(2)} €</h2>
-      <h3>Bezahlter Betrag: {paidAmount.toFixed(2)} €</h3>
-      {message && <p style={{ fontSize: "18px", color: "green" }}>{message}</p>}
+    <div style={{ padding: "10px", textAlign: "center" }}>
+      <h1 style={{ fontSize: "24px", marginBottom: "10px" }}>Bezahle den Betrag!</h1>
+      <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>Zielbetrag: {targetAmount.toFixed(2)} €</h2>
+      <h3 style={{ fontSize: "18px", marginBottom: "10px" }}>Bezahlter Betrag: {paidAmount.toFixed(2)} €</h3>
+      {message && <p style={{ fontSize: "16px", color: "green", marginBottom: "10px" }}>{message}</p>}
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", justifyContent: "center" }}>
+      <div style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "10px",
+        justifyContent: "center",
+        maxWidth: "400px",
+        margin: "0 auto"
+      }}>
         {euroValues.map((coin, index) => (
           <button
             key={index}
             style={{
-              padding: coin.shape === "rect" ? "10px 30px" : "20px",
-              fontSize: "16px",
+              padding: coin.shape === "rect" ? "10px 20px" : "15px",
+              fontSize: "14px",
               borderRadius: coin.shape === "circle" ? "50%" : "5px",
               cursor: "pointer",
               backgroundColor: coin.color,
               color: "white",
               border: "none",
               transition: "background-color 0.3s",
-              width: coin.shape === "circle" ? "80px" : "auto",
-              height: coin.shape === "circle" ? "80px" : "auto"
+              width: coin.shape === "circle" ? "60px" : "auto",
+              height: coin.shape === "circle" ? "60px" : "auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column"
             }}
             onClick={() => handlePayment(coin.value, coin.label)}
             disabled={paidAmount >= targetAmount} // Buttons deaktivieren, wenn das Ziel erreicht oder überschritten wurde
@@ -100,11 +111,11 @@ const EuroApp = () => {
         Neuen Betrag generieren
       </button>
 
-      <div style={{ marginTop: "20px", textAlign: "left" }}>
-        <h3>Statistik: Anzahl der Klicks auf Münzen und Scheine</h3>
+      <div style={{ marginTop: "20px", textAlign: "left", maxWidth: "400px", margin: "0 auto" }}>
+        <h3 style={{ fontSize: "18px" }}>Statistik: Anzahl der Klicks auf Münzen und Scheine</h3>
         <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
           {euroValues.map((coin) => (
-            <li key={coin.label}>
+            <li key={coin.label} style={{ fontSize: "16px" }}>
               {coin.label}: {clickStats[coin.label] || 0} Klicks
             </li>
           ))}

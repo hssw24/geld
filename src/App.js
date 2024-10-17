@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 
 const euroValues = [
-  { label: "1 Cent", value: 0.01, color: "#b87333", shape: "circle" }, // Kupfer
-  { label: "2 Cent", value: 0.02, color: "#b87333", shape: "circle" }, // Kupfer
-  { label: "5 Cent", value: 0.05, color: "#b87333", shape: "circle" }, // Kupfer
-  { label: "10 Cent", value: 0.10, color: "#d4af37", shape: "circle" }, // Gold
-  { label: "20 Cent", value: 0.20, color: "#d4af37", shape: "circle" }, // Gold
-  { label: "50 Cent", value: 0.50, color: "#d4af37", shape: "circle" }, // Gold
-  { label: "1 Euro", value: 1.00, color: "#c0c0c0", shape: "circle" }, // Silber mit Goldrand
-  { label: "2 Euro", value: 2.00, color: "#c0c0c0", shape: "circle" }, // Silber mit Goldrand
-  { label: "5 Euro", value: 5.00, color: "#007bff", shape: "rect" }, // Blaue Note
-  { label: "10 Euro", value: 10.00, color: "#ff5733", shape: "rect" }, // Rote Note
-  { label: "20 Euro", value: 20.00, color: "#3498db", shape: "rect" }, // Blaue Note
-  { label: "50 Euro", value: 50.00, color: "#f39c12", shape: "rect" } // Orange Note
+  { label: "1 Cent", value: 0.01, color: "#b87333", shape: "circle", radius: 20 }, // Kupfer
+  { label: "2 Cent", value: 0.02, color: "#b87333", shape: "circle", radius: 25 }, // Kupfer
+  { label: "5 Cent", value: 0.05, color: "#b87333", shape: "circle", radius: 30 }, // Kupfer
+  { label: "10 Cent", value: 0.10, color: "#d4af37", shape: "circle", radius: 35 }, // Gold
+  { label: "20 Cent", value: 0.20, color: "#d4af37", shape: "circle", radius: 40 }, // Gold
+  { label: "50 Cent", value: 0.50, color: "#d4af37", shape: "circle", radius: 45 }, // Gold
+  { label: "1 Euro", value: 1.00, color: "#c0c0c0", shape: "circle", radius: 50 }, // Silber mit Goldrand
+  { label: "2 Euro", value: 2.00, color: "#c0c0c0", shape: "circle", radius: 55 }, // Silber mit Goldrand
+  { label: "5 Euro", value: 5.00, color: "#007bff", shape: "rect", width: 120, height: 60 }, // Blaue Note
+  { label: "10 Euro", value: 10.00, color: "#ff5733", shape: "rect", width: 120, height: 60 }, // Rote Note
+  { label: "20 Euro", value: 20.00, color: "#3498db", shape: "rect", width: 120, height: 60 }, // Blaue Note
+  { label: "50 Euro", value: 50.00, color: "#f39c12", shape: "rect", width: 120, height: 60 } // Orange Note
 ];
 
 const EuroApp = () => {
@@ -85,8 +85,8 @@ const EuroApp = () => {
               color: "white",
               border: "none",
               transition: "background-color 0.3s",
-              width: coin.shape === "circle" ? "60px" : "auto",
-              height: coin.shape === "circle" ? "60px" : "auto",
+              width: coin.shape === "circle" ? `${coin.radius * 2}px` : `${coin.width}px`,
+              height: coin.shape === "circle" ? `${coin.radius * 2}px` : `${coin.height}px`,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
